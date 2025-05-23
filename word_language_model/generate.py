@@ -52,7 +52,7 @@ if args.temperature < 1e-3:
     parser.error("--temperature has to be greater or equal 1e-3.")
 
 with open(args.checkpoint, 'rb') as f:
-    model = torch.load(f, map_location=device)
+    model = torch.load(f, map_location=device, weights_only=False)
 model.eval()
 
 corpus = data.Corpus(args.data)
